@@ -2,28 +2,39 @@
   <div class="window">
     <button type="button" class="window__close-btn">X</button>
     <h2 class="window__title">Here you can create your new task</h2>
-    <form class="window__form">
-      <ul>
-        <li>
-          <select name="category">
-            <option>Choose the category</option>
-            <option>Task</option>
-            <option>Random Thought</option>
-            <option>Idea</option>
-            <option>Quote</option>
-          </select>
-        </li>
-        <li>
-          <label for="noteName">Note Name</label>
-          <input type="text" id="noteName" name="name" placeholder="Note Name" />
-        </li>
-        <li>
-          <label for="noteContent">Note Content</label>
-          <textarea type="text" id="noteContent" name="content" placeholder="Note Description" />
-        </li>
-      </ul>
+    <form class="window__form" autocomplete="off">
+      <fieldset>
+        <!-- <legend>Here you can create your new task</legend> -->
+        <ul>
+          <li>
+            <label for="noteCategory">Choose the category<abbr title="required">*</abbr></label>
+            <select name="task__category" id="noteCategory">
+              <!-- <option>Choose the category</option> -->
+              <option value="task" selected>Task</option>
+              <option value="random thought">Random Thought</option>
+              <option value="idea">Idea</option>
+              <option value="quote">Quote</option>
+            </select>
+          </li>
+          <li>
+            <label for="noteName">Note Name<abbr title="required">*</abbr></label>
+            <input type="text" id="noteName" name="task__name" placeholder="Note Name" />
+          </li>
+          <li>
+            <label for="noteContent">Note Content<abbr title="required">*</abbr></label>
+            <textarea
+              type="text"
+              id="noteContent"
+              name="task__content"
+              cols="30"
+              rows="10"
+              placeholder="Note Description"
+            ></textarea>
+          </li>
+        </ul>
 
-      <button type="submit" class="window__submit-btn">Add Note</button>
+        <button type="submit" class="window__submit-btn">Add Note</button>
+      </fieldset>
     </form>
   </div>
 </div>

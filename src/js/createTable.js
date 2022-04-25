@@ -5,6 +5,11 @@ import { addTask } from './createTask';
 //EVENTS:
 window.addEventListener('load', () => createMainTable(initialData));
 window.addEventListener('load', createSummaryTable);
+refs.tasksListActive.addEventListener('click', e => {
+  const evTarget = e.target;
+  onActionInTable(evTarget, initialData, createSummaryTable);
+});
+
 //create main table
 function createMainTable(data) {
   refs.tasksListActive.insertAdjacentHTML = '';
@@ -38,18 +43,18 @@ function createSummaryTable() {
 }
 
 //add task to Archive, Delete or Edit
-refs.tasksListActive.addEventListener('click', e => {
-  const taskDOMEl = e.target.closest('tr');
-  const dataEl = initialData.find(el => el.id.toString() === taskDOMEl.id);
+function onActionInTable(evTarget, dataList, clb) {
+  const taskDOMEl = evTarget.closest('tr');
+  const dataEl = dataList.find(el => el.id.toString() === taskDOMEl.id);
 
-  if (e.target.innerText === 'Archive') {
+  if (evTarget.innerText === 'Archive') {
     dataEl.archivated = true;
     taskDOMEl.remove();
-    createSummaryTable();
+    clb();
   }
-  if (e.target.innerText === 'Delete') {
+  if (evTarget.innerText === 'Delete') {
     taskDOMEl.remove();
-    initialData.splice(initialData.indexOf(dataEl), initialData.indexOf(dataEl) + 1);
-    createSummaryTable();
+    dataList.splice(dataList.indexOf(dataEl), dataList.indexOf(dataEl) + 1);
+    clb();
   }
-});
+}

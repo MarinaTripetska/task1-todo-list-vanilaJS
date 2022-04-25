@@ -1,6 +1,6 @@
 export const refs = {
   mainTable: document.getElementById('mainTable'),
-  tasksListActive: document.querySelector('.table-body'),
+  tasksListActive: mainTable.querySelector('.table-body'),
 
   summaryTable: document.getElementById('summaryTable'),
 

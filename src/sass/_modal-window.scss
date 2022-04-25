@@ -26,4 +26,44 @@
     text-align: center;
     margin-bottom: 45px;
   }
+
+  &__form {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 400px;
+
+    padding: 1em;
+    border: 1px solid #ccc;
+    border-radius: 1em;
+    abbr {
+      text-decoration: none;
+    }
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+    }
+    label {
+      display: inline-block;
+      text-align: right;
+    }
+    input,
+    textarea {
+      font: 1em sans-serif;
+
+      max-width: 300px;
+      width: 100%;
+      border: 1px solid #999;
+
+      input:focus,
+      textarea:focus {
+        border-color: #000;
+      }
+    }
+    textarea {
+      vertical-align: top;
+      height: 5em;
+      resize: none;
+    }
+  }
 }
